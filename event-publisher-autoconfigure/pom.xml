@@ -14,15 +14,18 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure-processor</artifactId>
-            <version>${spring-boot-version}</version>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <version>${spring-boot-version}</version>
+            <artifactId>spring-boot-autoconfigure-processor</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>event-publisher</artifactId>
