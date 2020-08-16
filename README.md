@@ -28,7 +28,7 @@ mvn clean install
 
 ### Automatic registration for the `EventPublisherAutoConfiguration`
 
-The heart of the autoconfiguration relies on the [`META-INF/spring.factories`](event-publisher-autoconfigure/src/main/resources/META-INF/spring.factories) file, which registers the `EventPublisherAutoConfiguration` class as a Spring Boot Configuration.
+The heart of the Autoconfiguration relies on the [`META-INF/spring.factories`](event-publisher-autoconfigure/src/main/resources/META-INF/spring.factories) file, which registers the `EventPublisherAutoConfiguration` class as a Spring Boot Configuration.
 
 ### Use of `spring-boot-configuration-processor`
 
@@ -39,3 +39,15 @@ The resulting file is combined with the custom [`META-INF/additional-spring-conf
 ### Use of `spring-boot-autoconfigure-processor`
 
 This annotation processor scans some of the `@ConditionalOn...` configuration metadata to produce a `META-INF/spring-autoconfigure-metadata.properties` file that allows Spring Boot to filter the Autoconfiguration without having to load and evaluate the annotations at runtime.
+
+### Autoconfiguration Tests
+
+The project also features [unit tests](event-publisher-autoconfigure/src/test/java/org/example/configuration/EventPublisherAutoConfigurationTests.java) for the Autoconfiguration using the `WebApplicationContextRunner` (because as an example, the Autoconfiguration has the `@ConditionalOnWebApplication` annotation).
+
+These tests validate that:
+
+* The Autoconfiguration provides the `EventPublisher` Bean.
+* The Autoconfiguration is correctly disabled with the corresponding property.
+* In the presence of a user-defined `EventPublisher` Bean the Autoconfiguration correctly backs off.
+* User-defined `EventListener`s are correctly picked up by the Autoconfiguration and passed down to the Bean instance.
+* Typed `ConfigurationProperties` are passed down to the Bean instance.
