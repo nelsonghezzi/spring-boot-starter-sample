@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.List;
 
 @Configuration
-@ConditionalOnProperty(value = "eventstarter.enabled", havingValue = "true", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "eventstarter", name = "enabled", havingValue = "true", matchIfMissing = true)
 @ConditionalOnWebApplication
 @EnableConfigurationProperties(EventPublisherProperties.class)
 public class EventPublisherAutoConfiguration {
