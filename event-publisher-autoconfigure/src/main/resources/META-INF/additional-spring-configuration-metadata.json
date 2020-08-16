@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "eventstarter.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enables or disables de Event Starter completely"
+    }
+  ]
+}
